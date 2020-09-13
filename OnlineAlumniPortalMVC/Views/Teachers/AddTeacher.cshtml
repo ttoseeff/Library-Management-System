@@ -1,0 +1,136 @@
+﻿@model OnlineAlumniPortalMVC.Models.Teacher
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model == null)
+    {
+        <script>
+            function createUrl(evt) {
+                var Value = $("#Name").val();
+                Value = Value.toLowerCase();
+                Value = Value.replace(/[^A-Z0-9]/ig, "-");
+                $("#Url").val(Value);
+            }
+        </script>
+    }
+}
+
+
+<div class="col-xs-9">
+    <h2>Add <strong>Teacher</strong></h2>
+</div>
+<div class="col-xs-3">
+    <input type="button" value="Manage FeeRecords" style="float:right;" class="btn btn-dark" data-toggle="modal" data-target="#modal-select" onclick="location.href = '/Students/MonthlyFee'">
+</div>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="form-group">
+                        <h2 style="color:#000;">Basic Information:</h2>
+                        <label class="form-label">First Name</label>
+                       
+                        @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Enter Student Name",  @Type="text", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Enter Student Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>                 
+
+                    <div class="form-group">
+                        <label class="form-label">CellNo</label>
+                        @Html.TextBoxFor(x => x.CellNo, new { @placeholder = "Enter Section",@TypeCode="integer", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        @Html.TextBoxFor(x => x.Address, new { @placeholder = "Enter RollNo", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                        
+                    <div class="form-group">
+                        <label class="form-label">Select City</label>
+                        @Html.DropDownListFor(model => model.CityID, new SelectList(ViewBag.CitiesList, "ID", "cityName"), new { @class = "form-control" })
+                    </div>    
+                    <div class="form-group">
+                        <label class="form-label">Select Country</label>
+                        @Html.DropDownListFor(model => model.CountryID, new SelectList(ViewBag.ContriesList, "ID", "Name"), new { @class = "form-control" })
+                    </div>           
+                    <div class="form-group">
+                        <label class="form-label">Religion</label>
+                        @Html.TextBoxFor(x => x.Religion, new { @placeholder = "Enter Religion", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Marital Status</label>
+                        @Html.TextBoxFor(x => x.MaritalStatus, new { @placeholder = "Enter Marital Status", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Qualification & Experience:</h2> 
+                    <div class="form-group">
+                        <label class="form-label">Enter Recent Degree</label>
+                        @Html.TextBoxFor(x => x.RecentDegree, new { @placeholder = "Enter Recent Degree", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Job Experience</label>
+                        @Html.TextBoxFor(x => x.JobExperience, new { @placeholder = "Enter Job Experience", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">AlAnsaar</h2>                   
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label class="form-label">Select School/College Campus</label>
+                            @Html.DropDownListFor(model => model.UniversityCampusID, new SelectList(ViewBag.UniversityCampusList, "ID", "Title"), new { @class = "form-control" })
+
+                        </div> 
+                        <label class="form-label">Select Designation</label>
+                        @Html.DropDownListFor(model => model.DesignationID, new SelectList(ViewBag.DesignationsList, "ID", "Name"), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Basic Salary</label>
+                        @Html.TextBoxFor(x => x.BasicSalary, new { @placeholder = "Enter Basic Salary", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>             
+                    <h2 style="color:#000;">Contract Duration:</h2>
+                    <div class="form-group">
+                        <label class="form-label">Start Date</label>
+                        @Html.TextBoxFor(x => x.StartDate, new { @placeholder = "Enter Start Date", @type="date", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">End date</label>
+                        @Html.TextBoxFor(x => x.EndDate, new { @placeholder = "Enter End Date",@type="date", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control ckeditor", @id = "editorid" })
+                    </div>
+                    <div class="form-group">
+                        Active
+
+                        @Html.CheckBoxFor(x => x.IsActive, new { @checked = "checked" })
+
+                    </div>
+                  
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+        @{
+            string Text = "Add New Teacher";
+            if (Model != null)
+            {
+                Text = "Update Teacher Record";
+            }
+        }
+
+
+        <input type="submit" id="btnSave" class=" btn btn-dark" value="@Text" name="Save" onclick="this.form.submit(); this.disabled = true;" />
+    </div>
+
+</form>

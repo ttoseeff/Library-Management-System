@@ -1,0 +1,56 @@
+﻿@model IEnumerable<OnlineAlumniPortalMVC.Models.Event>
+    @{
+        ViewBag.Title = "EventIndex";
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+    <!-- Banner Area Start -->
+    <div class="banner-area-wrapper">
+        <div class="banner-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="banner-content-wrapper">
+                            <div class="banner-content">
+                                <h2>Eventss</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <!-- Blog Start -->
+    <div class="blog-area pt-150 pb-150">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog mb-60">
+                        <div class="blog-img">
+                            <a href="/FrontPanel/EventDetail?ID=@item.ID"><img src="/Resources/Event/@item.Photo" alt="blog"></a>
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@item.DateofEvent</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2>@item.PlaceofEvent</h2>
+                                <a href="/FrontPanel/EventDetail?ID=@item.ID">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+                
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Blog End -->

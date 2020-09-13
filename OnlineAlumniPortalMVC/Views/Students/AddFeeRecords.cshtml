@@ -1,0 +1,165 @@
+﻿@model OnlineAlumniPortalMVC.Models.FeeRecord
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model == null)
+    {
+        <script>
+            function createUrl(evt) {
+                var Value = $("#Name").val();
+                Value = Value.toLowerCase();
+                Value = Value.replace(/[^A-Z0-9]/ig, "-");
+                $("#Url").val(Value);
+            }
+        </script>
+    }
+}
+<script src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+<script type="text/javascript"
+        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+</script>
+<script type="text/javascript">
+    $('#datetimepicker1, #datetimepicker2').datetimepicker({
+        format: 'dd/MM/yyyy HH:mm'
+    });
+</script>
+  <script>
+$('#addRow').on('click', function () {
+    $('#ProData').append('<div id="RowData" class="Row"><div class="Cell">@Html.EditorFor(m => m.BasicFee,new { htmlAttributes = new {id="PCode", Type = "Text", placeholder = "BasicFee" } })</div>');
+    $('#ProData').addClass();
+    return false; //prevent form submission
+});
+
+$('#ProData').on('click', '#deleteRow', function () {
+
+    $(this).parent().remove();
+    return false; //prevent form submission
+    });
+
+</script>
+
+<div class="col-xs-9">
+    <h2>Add <strong>Fee Record</strong></h2>
+</div>
+<div class="col-xs-3">
+    <input type="button" value="Manage FeeRecords" style="float:right;" class="btn btn-dark" data-toggle="modal" data-target="#modal-select" onclick="location.href = '/Students/MonthlyFee?StudentID=@ViewBag.Student.ID'">
+</div>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        @Html.DropDownListFor(x => x.StudentID,new SelectList(ViewBag.StudentList,"ID","Name"), new { @placeholder = "Enter Student Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Father Name</label>
+                        @Html.TextBoxFor(x => x.FatherName, new { @placeholder = "Enter Father Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Class</label>
+                        @Html.DropDownListFor(model => model.classID, new SelectList(ViewBag.ClassesList, "ID", "Name"), new { @class = "form-control" })
+                     @*  @Html.TextBoxFor(x => x.Class, new { @placeholder = "Enter Class", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })*@
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="form-label">Section</label>
+                        @Html.TextBoxFor(x => x.Section, new { @placeholder = "Enter Section", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Roll No</label>
+                        @Html.TextBoxFor(x => x.RollNo, new { @placeholder = "Enter RollNo", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Select School/College Campus</label>
+                        @Html.DropDownListFor(model => model.UniversityCampusID, new SelectList(ViewBag.UniversityCampusList, "ID", "Title"), new { @class = "form-control" })
+                    
+                    </div>
+                    <div class="form-group" id="datetimepicker2">
+                        <label class="form-label">Enter Issue Date</label>
+                        @Html.TextBoxFor(x => x.IssueDate, "{0:dd/MM/yyyy HH:mm}", new { @placeholder = "Enter Issue Date", @type = "date", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                        @*@if (ViewBag.date != null)
+            {
+                <input type="date" id="datetimepicker2" value="@ViewBag.date {0:dd/MM/yyyy HH:mm}" class="form-control"  required placeholder=" Enter Issue DAte" />
+            }
+            else
+            {
+                                    <input type="date"  class="form-control" required placeholder=" Enter Issue DAte" />*@
+
+
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="form-label">Select Due Date</label>
+                        @Html.TextBoxFor(x => x.DueDate, new { @placeholder = "Enter Due Date", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Fees:</h2>
+                    <div class="form-group" id="ProData">
+                        <div id="RowData" class="Row">
+                            <label @*class="form-label"*@ class="Cell">Basic Fee</label>
+                            @Html.EditorFor(x => x.BasicFee, new { @placeholder = "BasicFee", @id = "PCode", @Type = "Text", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+
+                        </div>
+                    </div>
+                        <div class="Cell">
+                            <a id="addRow">
+                                <i style="vertical-align:middle;color:green;padding:10px; font-size: 32px" class="fa fa-plus-square"></i>
+                            </a>
+                        </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Admission Fee</label>
+                        @Html.TextBoxFor(x => x.AdmissionFee, new { @placeholder = "Enter Admission Fee", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Total Fee</label>
+                        @Html.TextBoxFor(x => x.TotalFee, new { @placeholder = "Enter Total Fee", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Other Dues:</h2>
+                    <div class="form-group">
+                        <label class="form-label">Paper Fund</label>
+                        @Html.TextBoxFor(x => x.PaperFund, new { @placeholder = "Enter Paper Fund", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Misc</label>
+                        @Html.TextBoxFor(x => x.Misc, new { @placeholder = "Enter Misc", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Payable DueDate</label><br />
+                        PayableInDueDate  @Html.RadioButtonFor(x => x.PayableInDueDate,  new { @class = "form-control",@type="radio", @name="Date", @id="rad_inDue"})
+                        PayableAfterDueDate @Html.RadioButtonFor(x => x.PayableAfterDueDate, new { @class = "form-control",@type="radio", @name = "Date", @id="rad_afterDue" })
+                        @*@Html.TextBoxFor(x => x.Misc, new { @placeholder = "Enter Student Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })*@
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control ckeditor", @id = "editorid" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+        @{
+            string Text = "Add Fee Record";
+            if (Model != null)
+            {
+                Text = "Update Fee Record";
+            }
+        }
+
+
+        <input type="submit" id="btnSave" class=" btn btn-dark" value="@Text" name="Save" onclick="this.form.submit(); this.disabled = true;" />
+    </div>
+
+</form>

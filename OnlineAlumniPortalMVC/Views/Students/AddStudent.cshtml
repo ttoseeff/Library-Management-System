@@ -1,0 +1,260 @@
+﻿@model OnlineAlumniPortalMVC.Models.Student
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model == null)
+    {
+        <script>
+            function createUrl(evt) {
+                var Value = $("#Name").val();
+                Value = Value.toLowerCase();
+                Value = Value.replace(/[^A-Z0-9]/ig, "-");
+                $("#Url").val(Value);
+            }
+        </script>
+    }
+}
+
+<div class="col-xs-9">
+    <h2>Add <strong>Student</strong></h2>
+</div>
+<div class="col-xs-3">
+    <input type="button" value="Manage Students" style="float:right;" class="btn btn-dark" data-toggle="modal" data-target="#modal-select" onclick="location.href = '/Students/ManageStudents'">
+</div>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                @Html.TextBoxFor(x => x.Name, new { @placeholder = "Enter Title", @class = "form-control", @required = "required", @maxlength = "200", @onkeyup = "return createUrl(event)" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                @Html.TextBoxFor(x => x.Password, new { @placeholder = "Enter Password", @class = "form-control", @maxlength = "200", @required = "required", @type = "number", @min = "0" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                @Html.TextBoxFor(x => x.Email, new { @placeholder = "Enter Email", @class = "form-control", @maxlength = "300" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Mobile</label>
+                                @Html.TextBoxFor(x => x.Mobile, new { @placeholder = "Enter Mobile#", @class = "form-control", @maxlength = "14" })
+                            </div>
+                            <div class="form-group">
+                                <input type="file" id="file" name="file" />
+
+                                @{
+                                    if (Model != null)
+                                    {
+                                        <img src="@Model.Photo" height="300" width="400" />
+                                        <input type="hidden" name="ImageName" value="@Model.Photo" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <div class="form-group">
+                                    <label class="form-label">Select Country</label>
+                                    @Html.DropDownListFor(model => model.CountryID, new SelectList(ViewBag.ContriesList, "ID", "Name"), new { @class = "form-control" })
+                                </div>
+                                <label class="form-label">Select City</label>
+                                @Html.DropDownListFor(model => model.CityID, new SelectList(ViewBag.CitiesList, "ID", "cityName"), new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Select School/College Campus</label>
+                                @Html.DropDownListFor(model => model.UniversityCampusID, new SelectList(ViewBag.UniversityCampusList, "ID", "Title   "), new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth</label>
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @placeholder = "Enter DateofBirth", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CNIC</label>
+                        @Html.TextBoxFor(x => x.CNIC, new { @placeholder = "Enter CNIC", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Marital Status</label>
+                        @Html.TextBoxFor(x => x.MaritalStatus, new { @placeholder = "Enter MaritalStatus", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        @Html.TextBoxFor(x => x.Address, new { @placeholder = "Enter Address", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">YearOfPassing</label>
+                        @Html.TextBoxFor(x => x.YearofPassing, new { @placeholder = "Enter YearofPassing", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <div class="form-group">
+                        <label class="form-label">Admission Fee</label>
+                        @Html.TextBoxFor(x => x.AdmissionFee, new { @placeholder = "Enter AdmissionFee", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control ckeditor", @id = "editorid" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Parents/Guardian:</h2>
+                    <div class="form-group">
+                        <label class="form-label">Father's Name</label>
+                        @Html.TextBoxFor(x => x.FFatherName, new { @placeholder = "Enter DateofBirth", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CNIC</label>
+                        @Html.TextBoxFor(x => x.FCNIC, new { @placeholder = "Enter CNIC", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Cell</label>
+                        @Html.TextBoxFor(x => x.FCell, new { @placeholder = "Enter CNIC", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Profession/Designation</label>
+                        @Html.TextBoxFor(x => x.FDesignation, new { @placeholder = "Enter Designation", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Employed</label>
+                        @Html.DropDownListFor(model => model.FEmployedID, new SelectList(ViewBag.EmployedList, "ID", "Name"), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Work Address</label>
+                        @Html.TextBoxFor(x => x.FWorkAdress, new { @placeholder = "Enter Work Address", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Organization</label>
+                        @Html.TextBoxFor(x => x.FOrganization, new { @placeholder = "Enter Organization", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Monthly Income</label>
+                        @Html.TextBoxFor(x => x.FMonthlyIncome, new { @placeholder = "Enter Monthly Income", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        @Html.TextBoxFor(x => x.FPhone, new { @placeholder = "Enter Phone", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mothers Name</label>
+                        @Html.TextBoxFor(x => x.FMotherName, new { @placeholder = "Enter Mothers Name", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mother Occupation</label>
+                        @Html.DropDownListFor(model => model.FEmployedID, new SelectList(ViewBag.WifeList, "ID", "Name"), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Profession/Designation</label>
+                        @Html.TextBoxFor(x => x.FDesignation, new { @placeholder = "Enter CNIC", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">List any medical conditoin that school management be aware of</label>
+                        @Html.TextAreaFor(x => x.FDesignation, new { @placeholder = "Enter CNIC", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Emergency Contact</h2>
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        @Html.TextBoxFor(x => x.EMName, new { @placeholder = "Enter Name", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Residential Address</label>
+                        @Html.TextBoxFor(x => x.EMRESAddress, new { @placeholder = "Enter Residential Address", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        @Html.TextBoxFor(x => x.EMPhone, new { @placeholder = "Enter Phone", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Cell</label>
+                        @Html.TextBoxFor(x => x.EMCell, new { @placeholder = "Enter Cell", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Relationship with applicant</label>
+                        @Html.TextBoxFor(x => x.EMRelationship, new { @placeholder = "Enter Relationship with applicant", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">Academic Qualification</h2>
+                    <div class="form-group">
+                        <label class="form-label">Institute</label>
+                        @Html.TextBoxFor(x => x.AQInstitue, new { @placeholder = "Enter Institute", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Examination</label>
+                        @Html.TextBoxFor(x => x.AQExamination, new { @placeholder = "Enter Examination", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Board</label>
+                        @Html.TextBoxFor(x => x.AQBoard, new { @placeholder = "Enter Board", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Year of Passing</label>
+                        @Html.TextBoxFor(x => x.AQYearOfPassing, new { @placeholder = "Enter Year of Passing", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Roll#</label>
+                        @Html.TextBoxFor(x => x.AQRollNo, new { @placeholder = "Enter Roll#", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Marks Obtained</label>
+                        @Html.TextBoxFor(x => x.AQMarksObtained, new { @placeholder = "Enter Marks Obtained", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">%age</label>
+                        @Html.TextBoxFor(x => x.AQPercentageMarks, new { @placeholder = "Enter %age", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <hr style="border-top: 5px solid #000;" />
+                    <h2 style="color:#000;">For Office Use Only</h2>
+                    <div class="form-group">
+                        Approve
+
+                        @Html.CheckBoxFor(x => x.IsApprove, new { @checked = "checked" })
+
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Section</label>
+                        @Html.TextBoxFor(x => x.OUSection, new { @placeholder = "Enter Section", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Registration</label>
+                        @Html.TextBoxFor(x => x.OURegistration, new { @placeholder = "Enter Registration", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">PercentageMarks</label>
+                        @Html.TextBoxFor(x => x.AQPercentageMarks, new { @placeholder = "Enter PercentageMarks", @class = "form-control", @maxlength = "600", @rows = "5", @cols = "50" })
+                    </div>
+
+
+                    <div class="form-group">
+                        Active
+
+                        @Html.CheckBoxFor(x => x.IsActive, new { @checked = "checked" })
+
+                    </div>
+                </div>
+
+                <div>
+                    @{
+                        string Text = "Add Student";
+                        if (Model != null)
+                        {
+                            Text = "Update Student";
+                        }
+                    }
+
+
+                    <input type="submit" id="btnSave" class=" btn btn-dark" value="@Text" name="Save" onclick="this.form.submit(); this.disabled = true;" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,86 @@
+﻿@model OnlineAlumniPortalMVC.Models.SalaryRecord
+          
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model == null)
+    {
+        <script>
+            function createUrl(evt) {
+                var Value = $("#Name").val();
+                Value = Value.toLowerCase();
+                Value = Value.replace(/[^A-Z0-9]/ig, "-");
+                $("#Url").val(Value);
+            }
+        </script>
+    }
+}
+<script src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+</script>
+<script type="text/javascript"
+        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+</script>
+<script type="text/javascript">
+    $('#datetimepicker1, #datetimepicker2').datetimepicker({
+        format: 'dd/MM/yyyy HH:mm'
+    });
+</script>
+<div class="col-xs-9">
+    <h2>Add <strong>New Record</strong></h2>
+</div>
+<div class="col-xs-3">
+    <input type="button" value="Manage FeeRecords" style="float:right;" class="btn btn-dark" data-toggle="modal" data-target="#modal-select" onclick="location.href = '/Teachers/ManageMonthlySalary'">
+</div>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        @Html.TextBoxFor(x => x.FirstName, new { @placeholder = "Enter Student Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Father Name</label>
+                        @Html.TextBoxFor(x => x.LastName, new { @placeholder = "Enter Father Name", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>
+                  
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        @Html.TextBoxFor(x => x.Date, new { @placeholder = "Enter Section", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                   
+                        
+                    </div>      
+                    <div class="form-group">
+                        <label class="form-label">Salary</label>
+                        @Html.TextBoxFor(x => x.Salary, new { @placeholder = "Enter Section", @class = "form-control", maxlength = "300", @required = "required", @rows = "5", @cols = "50" })
+                    </div>  
+                   
+                    <div class="form-group">
+                        @Html.DropDownListFor(model => model.DesignationID, new SelectList(ViewBag.DesignationsList, "ID", "Name"), new { @class = "form-control" })
+
+                    </div>
+            </div>
+
+        </div>
+
+    </div>
+        </div>
+    <div>
+        @{
+            string Text = "Add Fee Record";
+            if (Model != null)
+            {
+                Text = "Update Fee Record";
+            }
+        }
+
+
+        <input type="submit" id="btnSave" class=" btn btn-dark" value="@Text" name="Save" onclick="this.form.submit(); this.disabled = true;" />
+    </div>
+
+</form>

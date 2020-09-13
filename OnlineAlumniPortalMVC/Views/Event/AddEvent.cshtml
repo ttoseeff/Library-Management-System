@@ -1,0 +1,93 @@
+﻿@model OnlineAlumniPortalMVC.Models.Event
+
+@{
+    ViewBag.Title = "AddEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (Model == null)
+    {
+        <script>
+            function createUrl(evt) {
+                var Value = $("#Name").val();
+                Value = Value.toLowerCase();
+                Value = Value.replace(/[^A-Z0-9]/ig, "-");
+                $("#Url").val(Value);
+            }
+        </script>
+    }
+}
+
+<div class="col-xs-9">
+    <h2>Add <strong>Event</strong></h2>
+</div>
+<div class="col-xs-3">
+    <input type="button" value="Manage Events" style="float:right;" class="btn btn-dark" data-toggle="modal" data-target="#modal-select" onclick="location.href = '/Event/ManageEvents'">
+</div>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                @Html.TextBoxFor(x => x.Event1, new { @placeholder = "Enter Name", @class = "form-control", @required = "required", @maxlength = "200", @onkeyup = "return createUrl(event)" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">DateofEvent</label>
+                                @Html.TextBoxFor(x => x.DateofEvent, new { @placeholder = "Enter DateofEvent", @class = "form-control", @maxlength = "200", @required = "required", @type = "date", @min = "0" })
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">PlaceofEvent</label>
+                                @Html.TextBoxFor(x => x.PlaceofEvent, new { @placeholder = "Enter PlaceofEvent", @class = "form-control", @maxlength = "300" })
+                            </div>
+                            <div class="form-group">
+                                <input type="file" id="file" name="file" />
+
+                                @{
+                                    if (Model != null)
+                                    {
+                                        <img src="@Model.Photo" height="300" width="400" />
+                                        <input type="hidden" name="ImageName" value="@Model.Photo" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        Active
+
+                        @Html.CheckBoxFor(x => x.IsActive, new { @checked = "checked" })
+
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control ckeditor", @id = "editorid" })
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    @{
+                        string Text = "Add Event";
+                        if (Model != null)
+                        {
+                            Text = "Update Event";
+                        }
+                    }
+
+
+                    <input type="submit" id="btnSave" class=" btn btn-dark" value="@Text" name="Save" onclick="this.form.submit(); this.disabled = true;" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+

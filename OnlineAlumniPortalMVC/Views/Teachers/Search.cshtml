@@ -1,0 +1,135 @@
+﻿@model OnlineAlumniPortalMVC.ViewModels.TeacherSearchViewModel
+@{
+    ViewBag.Title = "Seach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<div class="col-xs-9">
+    <h2>Search <strong>Staff Member</strong></h2>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "paging": false,
+            "ordering": false,
+            "info": false
+        });
+
+        $("#from").datepicker({ dateFormat: "dd-mm-yy" }).val();
+        $("#to").datepicker({ dateFormat: "dd-mm-yy" }).val();
+        $('.alertForTask').hide();
+        alert = function () { };
+    });
+</script>
+<form method="post" enctype="multipart/form-data" id="FormUser">
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="Name" placeholder="Enter Title" class="form-control" maxlength="50" value="@ViewBag.Member">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Designation</label>
+                                <input type="text" name="email" placeholder="Enter Email" class="form-control" maxlength="50" value="@ViewBag.designation">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+
+                        <input type="submit" id="btnSave" class="btn btn-dark" value="Search" name="Save" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+@if (Model.Conts != null && Model.Conts.Count() > 0)
+{
+    <div class="col-xs-9">
+        <h2>Search <strong>Result ( @Model.counts )</strong></h2>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 portlets">
+            <div class="panel">
+                <div class="panel-content pagination2 table-responsive">
+                    <table class="table table-hover table-dynamic" id="example">
+                        <thead>
+                            <tr>
+                                <th style="display: none;">ID</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Salary</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+
+    foreach (var item in Model.Conts)
+    {
+        <tr>
+            <td style="display: none;">
+                <img src="~/Resources/global/images/avatars/avatar11.png" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicSalary)
+            </td>
+
+
+            <td>
+                @{
+
+                    <a href='~/Teachers/AddTeacher?ID=@item.ID'>Edit</a>
+                    @*<a href='~/Students/Delete?ID=@item.ID' > Delete </a>*@
+
+                }
+            </td>
+        </tr>
+    }
+
+                            }
+                        </tbody>
+                    </table>
+                    <div class="customPagination">
+                        @Html.Raw(Model.pagination)
+
+                    </div>
+                    <div class="modal fade modal-bottomfull" id="modal-bottomfull" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                                    <h4 class="modal-title"><strong>Are you</strong> Sure</h4>
+                                </div>
+                                <div class="modal-body">
+                                    You want to delete this info ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+                                    <a href="" id="DeleteLink" class="btn btn-primary btn-embossed">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

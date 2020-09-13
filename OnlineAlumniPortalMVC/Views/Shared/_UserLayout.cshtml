@@ -1,0 +1,133 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eduhome - Educational HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/UserEnd/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="/UserEnd/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/UserEnd/css/animate.css">
+    <link rel="stylesheet" href="/UserEnd/css/meanmenu.css">
+    <link rel="stylesheet" href="/UserEnd/css/magnific-popup.css">
+    <link rel="stylesheet" href="/UserEnd/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/UserEnd/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/UserEnd/css/et-line-icon.css">
+    <link rel="stylesheet" href="/UserEnd/css/reset.css">
+    <link rel="stylesheet" href="/UserEnd/css/ionicons.min.css">
+    <link rel="stylesheet" href="/UserEnd/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/UserEnd/css/style.css">
+    <link rel="stylesheet" href="/UserEnd/css/responsive.css">
+    <script src="/UserEnd/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Header Area Start -->
+    <header class="top">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="header-top-left">
+                            <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="header-top-right text-right">
+                            <ul>
+                                @if (Request.Cookies["UserCookies"] == null)
+                                {
+                                <li><a href="/FrontPanel/SignIn">login</a></li>
+                                    
+                                }
+                                else
+                                {
+                                <li><a href="#">Hi @Request.Cookies["UserCookies"]["Name"]</a></li>
+                                    
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-area two header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="logo">
+                            <a href="index.html"><img src="/UserEnd/img/logo/logo2.png" alt="eduhome" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-6">
+                        <div class="content-wrapper text-right">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        @if (Request.Cookies["UserCookies"] != null)
+                                        {
+                                            <li class="hidden-sm">
+                                                <a href="/FrontPanel/DashboardIndex">teacher</a>
+                                                @*<ul>
+                                                        <li><a href="teacher.html">teacher</a></li>
+                                                        <li><a href="teacher-details.html">teacher details</a></li>
+                                                    </ul>*@
+                                            </li>
+                                        }
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        @if (Request.Cookies["UserCookies"] != null)
+                                        {
+                                            <li class="hidden-sm">
+                                                <a href="/FrontPanel/Logout">Logout</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Main Menu End -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="mobile-menu hidden-lg hidden-md hidden-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+    @RenderBody();
+    <!-- Footer Start -->
+    <footer class="footer-area">
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>Copyright © <a href="https://devitems.com/" target="_blank">HasTech</a> 2017. All Right Reserved By Hastech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script src="/UserEnd/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="/UserEnd/js/bootstrap.min.js"></script>
+    <script src="/UserEnd/js/jquery.meanmenu.js"></script>
+    <script src="/UserEnd/js/jquery.magnific-popup.js"></script>
+    <script src="/UserEnd/js/ajax-mail.js"></script>
+    <script src="/UserEnd/js/owl.carousel.min.js"></script>
+    <script src="/UserEnd/js/jquery.mb.YTPlayer.js"></script>
+    <script src="/UserEnd/js/jquery.nicescroll.min.js"></script>
+    <script src="/UserEnd/js/plugins.js"></script>
+    <script src="/UserEnd/js/main.js"></script>
+</body>
+</html>

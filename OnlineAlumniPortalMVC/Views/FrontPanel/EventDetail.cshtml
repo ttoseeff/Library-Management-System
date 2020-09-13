@@ -1,0 +1,45 @@
+﻿@model OnlineAlumniPortalMVC.Models.Event
+
+@{
+    ViewBag.Title = "EventDetail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>event details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-details-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img src="/Resources/Event/@Model.Photo" alt="blog-details">
+                    </div>
+                    <div class="blog-details-content">
+                        <h2>@Model.Event1</h2>
+                        <h6>@Model.PlaceofEvent </h6>
+                        @Html.Raw(Model.Description)
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

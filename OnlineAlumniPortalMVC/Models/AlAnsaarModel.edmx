@@ -1,0 +1,1317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AlAnsaarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact Us">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="MessageDate" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="int" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event" Type="varchar" MaxLength="50" />
+          <Property Name="DateofEvent" Type="varchar" MaxLength="50" />
+          <Property Name="PlaceofEvent" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FeeRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudenName" Type="varchar" MaxLength="50" />
+          <Property Name="FatherName" Type="varchar" MaxLength="50" />
+          <Property Name="Section" Type="varchar" MaxLength="50" />
+          <Property Name="RollNo" Type="varchar" MaxLength="50" />
+          <Property Name="UniversityCampusID" Type="int" />
+          <Property Name="IssueDate" Type="date" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="BasicFee" Type="varchar" MaxLength="50" />
+          <Property Name="AdmissionFee" Type="varchar" MaxLength="50" />
+          <Property Name="TotalFee" Type="varchar" MaxLength="50" />
+          <Property Name="PaperFund" Type="varchar" MaxLength="50" />
+          <Property Name="Misc" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="PayableInDueDate" Type="int" />
+          <Property Name="PayableAfterDueDate" Type="int" />
+          <Property Name="classID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StudentID" Type="int" />
+        </EntityType>
+        <EntityType Name="SalaryRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Salary" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="date" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="DesignationID" Type="int" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Value" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DateofBirth" Type="varchar" MaxLength="50" />
+          <Property Name="CNIC" Type="int" />
+          <Property Name="MaritalStatus" Type="char" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="UniversityCampusID" Type="int" />
+          <Property Name="StudyProgram" Type="varchar" MaxLength="50" />
+          <Property Name="YearofPassing" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="varchar" MaxLength="50" />
+          <Property Name="EntityType" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherName" Type="varchar" MaxLength="50" />
+          <Property Name="ClassID" Type="int" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+          <Property Name="FFatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FCNIC" Type="nvarchar" MaxLength="50" />
+          <Property Name="FCell" Type="nvarchar" MaxLength="50" />
+          <Property Name="FDesignation" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEmployedID" Type="int" />
+          <Property Name="FWorkAdress" Type="nvarchar" MaxLength="50" />
+          <Property Name="FOrganization" Type="nvarchar" MaxLength="50" />
+          <Property Name="FMonthlyIncome" Type="int" />
+          <Property Name="FPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="FMotherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WifeID" Type="int" />
+          <Property Name="MContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="MEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedicalCondtion" Type="nvarchar" MaxLength="500" />
+          <Property Name="EMName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMRESAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMCell" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMRelationship" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQInstitue" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQExamination" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQBoard" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQYearOfPassing" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQRollNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQMarksObtained" Type="nvarchar" MaxLength="50" />
+          <Property Name="AQPercentageMarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsApprove" Type="bit" Nullable="false" />
+          <Property Name="OUSection" Type="nvarchar" MaxLength="50" />
+          <Property Name="OURegistration" Type="nvarchar" MaxLength="50" />
+          <Property Name="OURemarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdmissionFee" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="countryId" Type="int" />
+          <Property Name="Is_Active" Type="bit" Nullable="false" />
+          <Property Name="Is_Delete" Type="bit" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="TopDest" Type="bit" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="200" />
+          <Property Name="Is_Active" Type="bit" Nullable="false" />
+          <Property Name="Is_Delete" Type="bit" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="AppLogo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblEmployed">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblStudentEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="EventID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUniversityCampus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblWife">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="CellNo" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="CityID" Type="int" />
+          <Property Name="DesignationID" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="BasicSalary" Type="varchar" MaxLength="50" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="UniversityCampusID" Type="int" />
+          <Property Name="RecentDegree" Type="varchar" MaxLength="50" />
+          <Property Name="JobExperience" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_FeeRecord_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="FeeRecord" Type="Self.FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeRecord_tblClass">
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="0..1" />
+          <End Role="FeeRecord" Type="Self.FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="classID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeRecord_tblUniversityCampus1">
+          <End Role="tblUniversityCampus" Type="Self.tblUniversityCampus" Multiplicity="0..1" />
+          <End Role="FeeRecord" Type="Self.FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblCity">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblClass">
+          <End Role="tblClass" Type="Self.tblClass" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblUniversity">
+          <End Role="tblUniversityCampus" Type="Self.tblUniversityCampus" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblUniversityCampus">
+          <End Role="tblUniversityCampus" Type="Self.tblUniversityCampus" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCity_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblCity">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudentEvent_Events">
+          <End Role="Events" Type="Self.Events" Multiplicity="0..1" />
+          <End Role="tblStudentEvent" Type="Self.tblStudentEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblStudentEvent">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudentEvent_tblStudentEvent">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="tblStudentEvent" Type="Self.tblStudentEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblStudentEvent">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Designation">
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_tblCity">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlAnsaarModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact Us" EntityType="Self.Contact Us" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeRecord" EntityType="Self.FeeRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryRecord" EntityType="Self.SalaryRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCity" EntityType="Self.tblCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblClass" EntityType="Self.tblClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployed" EntityType="Self.tblEmployed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudentEvent" EntityType="Self.tblStudentEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUniversityCampus" EntityType="Self.tblUniversityCampus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWife" EntityType="Self.tblWife" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_FeeRecord_Students" Association="Self.FK_FeeRecord_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="FeeRecord" EntitySet="FeeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeRecord_tblClass" Association="Self.FK_FeeRecord_tblClass">
+            <End Role="tblClass" EntitySet="tblClass" />
+            <End Role="FeeRecord" EntitySet="FeeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeRecord_tblUniversityCampus1" Association="Self.FK_FeeRecord_tblUniversityCampus1">
+            <End Role="tblUniversityCampus" EntitySet="tblUniversityCampus" />
+            <End Role="FeeRecord" EntitySet="FeeRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblCity" Association="Self.FK_Students_tblCity">
+            <End Role="tblCity" EntitySet="tblCity" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblClass" Association="Self.FK_Students_tblClass">
+            <End Role="tblClass" EntitySet="tblClass" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblCountry" Association="Self.FK_Students_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblUniversity" Association="Self.FK_Students_tblUniversity">
+            <End Role="tblUniversityCampus" EntitySet="tblUniversityCampus" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblUniversityCampus" Association="Self.FK_Students_tblUniversityCampus">
+            <End Role="tblUniversityCampus" EntitySet="tblUniversityCampus" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCity_tblCountry" Association="Self.FK_tblCity_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="tblCity" EntitySet="tblCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudentEvent_Events" Association="Self.FK_tblStudentEvent_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="tblStudentEvent" EntitySet="tblStudentEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudentEvent_tblStudentEvent" Association="Self.FK_tblStudentEvent_tblStudentEvent">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="tblStudentEvent" EntitySet="tblStudentEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Designation" Association="Self.FK_Teachers_Designation">
+            <End Role="Designation" EntitySet="Designation" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_tblCity" Association="Self.FK_Teachers_tblCity">
+            <End Role="tblCity" EntitySet="tblCity" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_tblCountry" Association="Self.FK_Teachers_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlAnsaarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact_Us">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MessageDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateofEvent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceofEvent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblStudentEvents" Relationship="Self.FK_tblStudentEvent_Events" FromRole="Events" ToRole="tblStudentEvent" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateofBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="Int32" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="UniversityCampusID" Type="Int32" />
+          <Property Name="StudyProgram" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearofPassing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EntityType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCity" Relationship="Self.FK_Students_tblCity" FromRole="Students" ToRole="tblCity" />
+          <NavigationProperty Name="tblCountry" Relationship="Self.FK_Students_tblCountry" FromRole="Students" ToRole="tblCountry" />
+          <NavigationProperty Name="tblUniversityCampu" Relationship="Self.FK_Students_tblUniversity" FromRole="Students" ToRole="tblUniversityCampus" />
+          <NavigationProperty Name="tblUniversityCampu1" Relationship="Self.FK_Students_tblUniversityCampus" FromRole="Students" ToRole="tblUniversityCampus" />
+          <NavigationProperty Name="tblStudentEvents" Relationship="Self.FK_tblStudentEvent_tblStudentEvent" FromRole="Students" ToRole="tblStudentEvent" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassID" Type="Int32" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FFatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FCNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FCell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEmployedID" Type="Int32" />
+          <Property Name="FWorkAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FOrganization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FMonthlyIncome" Type="Int32" />
+          <Property Name="FPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FMotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WifeID" Type="Int32" />
+          <Property Name="MContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedicalCondtion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EMName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMRESAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMCell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMRelationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQInstitue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQExamination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQBoard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQYearOfPassing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQRollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQMarksObtained" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AQPercentageMarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblClass" Relationship="AlAnsaarModel.FK_Students_tblClass" FromRole="Student" ToRole="tblClass" />
+          <Property Name="IsApprove" Type="Boolean" Nullable="false" />
+          <Property Name="OUSection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OURegistration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OURemarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdmissionFee" Type="Int32" />
+          <NavigationProperty Name="FeeRecords" Relationship="AlAnsaarModel.FK_FeeRecord_Students" FromRole="Student" ToRole="FeeRecord" />
+        </EntityType>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="countryId" Type="Int32" />
+          <Property Name="Is_Active" Type="Boolean" Nullable="false" />
+          <Property Name="Is_Delete" Type="Boolean" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_tblCity" FromRole="tblCity" ToRole="Students" />
+          <NavigationProperty Name="tblCountry" Relationship="Self.FK_tblCity_tblCountry" FromRole="tblCity" ToRole="tblCountry" />
+          <NavigationProperty Name="Teachers" Relationship="AlAnsaarModel.FK_Teachers_tblCity" FromRole="tblCity" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TopDest" Type="Boolean" Nullable="false" />
+          <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Is_Active" Type="Boolean" Nullable="false" />
+          <Property Name="Is_Delete" Type="Boolean" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="AppLogo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_tblCountry" FromRole="tblCountry" ToRole="Students" />
+          <NavigationProperty Name="tblCities" Relationship="Self.FK_tblCity_tblCountry" FromRole="tblCountry" ToRole="tblCity" />
+          <NavigationProperty Name="Teachers" Relationship="AlAnsaarModel.FK_Teachers_tblCountry" FromRole="tblCountry" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="tblStudentEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="EventID" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_tblStudentEvent_Events" FromRole="tblStudentEvent" ToRole="Events" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_tblStudentEvent_tblStudentEvent" FromRole="tblStudentEvent" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="tblUniversityCampu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_tblUniversity" FromRole="tblUniversityCampus" ToRole="Students" />
+          <NavigationProperty Name="Students1" Relationship="Self.FK_Students_tblUniversityCampus" FromRole="tblUniversityCampus" ToRole="Students" />
+          <NavigationProperty Name="FeeRecords" Relationship="AlAnsaarModel.FK_FeeRecord_tblUniversityCampus1" FromRole="tblUniversityCampu" ToRole="FeeRecord" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tblStudentEvent_Events">
+          <End Role="Events" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="tblStudentEvent" Type="Self.tblStudentEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblStudentEvent">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblCity">
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblUniversity">
+          <End Role="tblUniversityCampus" Type="Self.tblUniversityCampu" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_tblUniversityCampus">
+          <End Role="tblUniversityCampus" Type="Self.tblUniversityCampu" Multiplicity="0..1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStudentEvent_tblStudentEvent">
+          <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="tblStudentEvent" Type="Self.tblStudentEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblStudentEvent">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCity_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblCity">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlumniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Contact_Us" EntityType="Self.Contact_Us" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Settings" EntityType="Self.Setting" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="tblCities" EntityType="Self.tblCity" />
+          <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
+          <EntitySet Name="tblStudentEvents" EntityType="Self.tblStudentEvent" />
+          <EntitySet Name="tblUniversityCampus" EntityType="Self.tblUniversityCampu" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_tblStudentEvent_Events" Association="Self.FK_tblStudentEvent_Events">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="tblStudentEvent" EntitySet="tblStudentEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblCity" Association="Self.FK_Students_tblCity">
+            <End Role="tblCity" EntitySet="tblCities" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblCountry" Association="Self.FK_Students_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblUniversity" Association="Self.FK_Students_tblUniversity">
+            <End Role="tblUniversityCampus" EntitySet="tblUniversityCampus" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_tblUniversityCampus" Association="Self.FK_Students_tblUniversityCampus">
+            <End Role="tblUniversityCampus" EntitySet="tblUniversityCampus" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStudentEvent_tblStudentEvent" Association="Self.FK_tblStudentEvent_tblStudentEvent">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="tblStudentEvent" EntitySet="tblStudentEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCity_tblCountry" Association="Self.FK_tblCity_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="tblCity" EntitySet="tblCities" />
+          </AssociationSet>
+          <EntitySet Name="tblClasses" EntityType="AlAnsaarModel.tblClass" />
+          <EntitySet Name="tblEmployeds" EntityType="AlAnsaarModel.tblEmployed" />
+          <EntitySet Name="tblWives" EntityType="AlAnsaarModel.tblWife" />
+          <AssociationSet Name="FK_Students_tblClass" Association="AlAnsaarModel.FK_Students_tblClass">
+            <End Role="tblClass" EntitySet="tblClasses" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <EntitySet Name="Designations" EntityType="AlAnsaarModel.Designation" />
+          <EntitySet Name="SalaryRecords" EntityType="AlAnsaarModel.SalaryRecord" />
+          <EntitySet Name="Teachers" EntityType="AlAnsaarModel.Teacher" />
+          <AssociationSet Name="FK_Teachers_Designation" Association="AlAnsaarModel.FK_Teachers_Designation">
+            <End Role="Designation" EntitySet="Designations" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_tblCity" Association="AlAnsaarModel.FK_Teachers_tblCity">
+            <End Role="tblCity" EntitySet="tblCities" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_tblCountry" Association="AlAnsaarModel.FK_Teachers_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <EntitySet Name="FeeRecords" EntityType="AlAnsaarModel.FeeRecord" />
+          <AssociationSet Name="FK_FeeRecord_Students" Association="AlAnsaarModel.FK_FeeRecord_Students">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="FeeRecord" EntitySet="FeeRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeRecord_tblClass" Association="AlAnsaarModel.FK_FeeRecord_tblClass">
+            <End Role="tblClass" EntitySet="tblClasses" />
+            <End Role="FeeRecord" EntitySet="FeeRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeRecord_tblUniversityCampus1" Association="AlAnsaarModel.FK_FeeRecord_tblUniversityCampus1">
+            <End Role="tblUniversityCampu" EntitySet="tblUniversityCampus" />
+            <End Role="FeeRecord" EntitySet="FeeRecords" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tblClass">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <NavigationProperty Name="Students" Relationship="AlAnsaarModel.FK_Students_tblClass" FromRole="tblClass" ToRole="Student" />
+          <NavigationProperty Name="FeeRecords" Relationship="AlAnsaarModel.FK_FeeRecord_tblClass" FromRole="tblClass" ToRole="FeeRecord" />
+        </EntityType>
+        <EntityType Name="tblEmployed">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblWife">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Students_tblClass">
+          <End Type="AlAnsaarModel.tblClass" Role="tblClass" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Int32" />
+          <NavigationProperty Name="Teachers" Relationship="AlAnsaarModel.FK_Teachers_Designation" FromRole="Designation" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="SalaryRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DesignationID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CellNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" />
+          <Property Name="DesignationID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="BasicSalary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UniversityCampusID" Type="Int32" />
+          <Property Name="RecentDegree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Designation" Relationship="AlAnsaarModel.FK_Teachers_Designation" FromRole="Teacher" ToRole="Designation" />
+          <NavigationProperty Name="tblCity" Relationship="AlAnsaarModel.FK_Teachers_tblCity" FromRole="Teacher" ToRole="tblCity" />
+          <NavigationProperty Name="tblCountry" Relationship="AlAnsaarModel.FK_Teachers_tblCountry" FromRole="Teacher" ToRole="tblCountry" />
+        </EntityType>
+        <Association Name="FK_Teachers_Designation">
+          <End Type="AlAnsaarModel.Designation" Role="Designation" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_tblCity">
+          <End Type="AlAnsaarModel.tblCity" Role="tblCity" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_tblCountry">
+          <End Type="AlAnsaarModel.tblCountry" Role="tblCountry" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FeeRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UniversityCampusID" Type="Int32" />
+          <Property Name="IssueDate" Type="DateTime" Precision="0" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BasicFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaperFund" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Misc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="PayableInDueDate" Type="Int32" />
+          <Property Name="PayableAfterDueDate" Type="Int32" />
+          <Property Name="classID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StudentID" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="AlAnsaarModel.FK_FeeRecord_Students" FromRole="FeeRecord" ToRole="Student" />
+          <NavigationProperty Name="tblClass" Relationship="AlAnsaarModel.FK_FeeRecord_tblClass" FromRole="FeeRecord" ToRole="tblClass" />
+          <NavigationProperty Name="tblUniversityCampu" Relationship="AlAnsaarModel.FK_FeeRecord_tblUniversityCampus1" FromRole="FeeRecord" ToRole="tblUniversityCampu" />
+        </EntityType>
+        <Association Name="FK_FeeRecord_Students">
+          <End Type="AlAnsaarModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.FeeRecord" Role="FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeRecord_tblClass">
+          <End Type="AlAnsaarModel.tblClass" Role="tblClass" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.FeeRecord" Role="FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblClass">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="classID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeRecord_tblUniversityCampus1">
+          <End Type="AlAnsaarModel.tblUniversityCampu" Role="tblUniversityCampu" Multiplicity="0..1" />
+          <End Type="AlAnsaarModel.FeeRecord" Role="FeeRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUniversityCampu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FeeRecord">
+              <PropertyRef Name="UniversityCampusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlAnsaarModelStoreContainer" CdmEntityContainer="AlumniEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact_Us">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Contact_Us">
+              <MappingFragment StoreEntitySet="Contact Us">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Event1" ColumnName="Event" />
+                <ScalarProperty Name="DateofEvent" ColumnName="DateofEvent" />
+                <ScalarProperty Name="PlaceofEvent" ColumnName="PlaceofEvent" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="OURemarks" ColumnName="OURemarks" />
+                <ScalarProperty Name="OURegistration" ColumnName="OURegistration" />
+                <ScalarProperty Name="OUSection" ColumnName="OUSection" />
+                <ScalarProperty Name="IsApprove" ColumnName="IsApprove" />
+                <ScalarProperty Name="AQPercentageMarks" ColumnName="AQPercentageMarks" />
+                <ScalarProperty Name="AQMarksObtained" ColumnName="AQMarksObtained" />
+                <ScalarProperty Name="AQRollNo" ColumnName="AQRollNo" />
+                <ScalarProperty Name="AQYearOfPassing" ColumnName="AQYearOfPassing" />
+                <ScalarProperty Name="AQBoard" ColumnName="AQBoard" />
+                <ScalarProperty Name="AQExamination" ColumnName="AQExamination" />
+                <ScalarProperty Name="AQInstitue" ColumnName="AQInstitue" />
+                <ScalarProperty Name="EMRelationship" ColumnName="EMRelationship" />
+                <ScalarProperty Name="EMCell" ColumnName="EMCell" />
+                <ScalarProperty Name="EMPhone" ColumnName="EMPhone" />
+                <ScalarProperty Name="EMRESAddress" ColumnName="EMRESAddress" />
+                <ScalarProperty Name="EMName" ColumnName="EMName" />
+                <ScalarProperty Name="MedicalCondtion" ColumnName="MedicalCondtion" />
+                <ScalarProperty Name="MEmail" ColumnName="MEmail" />
+                <ScalarProperty Name="MContact" ColumnName="MContact" />
+                <ScalarProperty Name="WifeID" ColumnName="WifeID" />
+                <ScalarProperty Name="FMotherName" ColumnName="FMotherName" />
+                <ScalarProperty Name="FPhone" ColumnName="FPhone" />
+                <ScalarProperty Name="FMonthlyIncome" ColumnName="FMonthlyIncome" />
+                <ScalarProperty Name="FOrganization" ColumnName="FOrganization" />
+                <ScalarProperty Name="FWorkAdress" ColumnName="FWorkAdress" />
+                <ScalarProperty Name="FEmployedID" ColumnName="FEmployedID" />
+                <ScalarProperty Name="FDesignation" ColumnName="FDesignation" />
+                <ScalarProperty Name="FCell" ColumnName="FCell" />
+                <ScalarProperty Name="FCNIC" ColumnName="FCNIC" />
+                <ScalarProperty Name="FFatherName" ColumnName="FFatherName" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="UniversityCampusID" ColumnName="UniversityCampusID" />
+                <ScalarProperty Name="StudyProgram" ColumnName="StudyProgram" />
+                <ScalarProperty Name="YearofPassing" ColumnName="YearofPassing" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCities">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblCity">
+              <MappingFragment StoreEntitySet="tblCity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCountries">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TopDest" ColumnName="TopDest" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Is_Delete" ColumnName="Is_Delete" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="AppLogo" ColumnName="AppLogo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudentEvents">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblStudentEvent">
+              <MappingFragment StoreEntitySet="tblStudentEvent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUniversityCampus">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblUniversityCampu">
+              <MappingFragment StoreEntitySet="tblUniversityCampus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AlAnsaarModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblClasses">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblClass">
+              <MappingFragment StoreEntitySet="tblClass">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployeds">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblEmployed">
+              <MappingFragment StoreEntitySet="tblEmployed">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWives">
+            <EntityTypeMapping TypeName="AlAnsaarModel.tblWife">
+              <MappingFragment StoreEntitySet="tblWife">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryRecords">
+            <EntityTypeMapping TypeName="AlAnsaarModel.SalaryRecord">
+              <MappingFragment StoreEntitySet="SalaryRecord">
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="AlAnsaarModel.Teacher">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="JobExperience" ColumnName="JobExperience" />
+                <ScalarProperty Name="RecentDegree" ColumnName="RecentDegree" />
+                <ScalarProperty Name="UniversityCampusID" ColumnName="UniversityCampusID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeRecords">
+            <EntityTypeMapping TypeName="AlAnsaarModel.FeeRecord">
+              <MappingFragment StoreEntitySet="FeeRecord">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="classID" ColumnName="classID" />
+                <ScalarProperty Name="PayableAfterDueDate" ColumnName="PayableAfterDueDate" />
+                <ScalarProperty Name="PayableInDueDate" ColumnName="PayableInDueDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Misc" ColumnName="Misc" />
+                <ScalarProperty Name="PaperFund" ColumnName="PaperFund" />
+                <ScalarProperty Name="TotalFee" ColumnName="TotalFee" />
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="BasicFee" ColumnName="BasicFee" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+                <ScalarProperty Name="UniversityCampusID" ColumnName="UniversityCampusID" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="StudenName" ColumnName="StudenName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
